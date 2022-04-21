@@ -2,17 +2,20 @@
 <html lang="en">
 
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Daily Student Loan Interest Calculator</title>
-   <!-- External CSS Links -->
+   <meta charset="utf-8">
+   <meta name="description" content="This is where your description goes">
+   <meta name="keywords" content="one, two, three">
+
+   <title>Loans or Bitcoin</title>
+
+   <!-- external CSS link -->
    <link rel="stylesheet" href="css/normalize.css">
    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-   <h1>Student Loan Interest Calculator</h1>
+   <h1>Pay Loan or Buy Bitcoin</h1>
+   <h2>Current price of Bitcoin: <span class="bitcoin"></span></h2>
    <form action="">
       <label for="borrowed">Amount Borrowed/Amount Left</label>
       <input id="borrowed" type="number" placeholder="Amount Borrowed">
@@ -20,7 +23,7 @@
       <label for="interest">Annual Interest Rate</label>
       <input id="interest" type="number" placeholder="Interest Rate">
    </form>
-   <button id="btnInterest">Find Interest</button>
+   <button id="btnInterest">Find Interest and current Bitcoin price</button>
    <section class="instructions">
       <h2>How to calculate student loan interest</h2>
       <p>To see how to calculate student loan interest in practice, get out your pen and paper and follow along using
@@ -34,7 +37,7 @@
    </section>
 
    <section class="questionOne">
-      <p><strong>1. Calculate your daily interest rate (sometimes called interest rate factor). </strong> Divide your
+      <p><strong>1. Calculate your daily interest rate (sometimes called interest rate factor).</strong> Divide your
          annual studen loan interest rate by the number of days in the year.</p>
       <p><strong>Example</strong></p>
       <p class="example">.07/365 = 0.00019, or 0.019%</p>
@@ -52,7 +55,7 @@
       <p><strong>Example</strong></p>
       <p class="example">$10,000 x 0.00019 = $1.90
       </p>
-      <p>Amount of interest YOU accure per day</p>
+      <p>Amount of interest YOU accrues per day</p>
       <p>$<span class="amountBorrowed">0</span> x <span class="dailyinterestRateTenThousandths">0.00000</span> = $ <span
             class="amountPerDay">0.00</span></p>
    </section>
@@ -65,21 +68,21 @@
       <p class="example">$1.90 x 30 = $57</p>
       <p>Your Monthly Interest</p>
       <p>$<span class="amountPerDay">0.00</span> x 30 = $<span class="dailyCalculation">0.00</span></p>
-
-      <footer>
-         <hr>
-         <section class="nerd">
-            <span>Formula provided by Nerd Wallet</span>
-         </section>
-      </footer>
-
-
    </section>
 
-   <!-- <footer>
-      <h2>Insturctions are from Nerd Wallet.</h2>
-   </footer> -->
-   <script src="JavaScript/script.js"></script>
+   <section class="bitcoinQuestion">
+      <p><Strong>4. How much Bitcoin can you buy right now instead of paying for your loans?</Strong></p>
+      <button id="btnBitcoin">Find Amount of Bitcoin price</button>
+      <p>You are looking at <span class="bitcoinAmountFromTotaLoan"></span> out of your total loan.</p>
+      <p>Monthly interest alone can buy you <span class="bitcoinAmountFromMonthlyInterest"></span></p>
+   </section>
+   <footer>
+      <hr>
+      <section class="nerd">
+         <span>Formula provided by Nerd Wallet built by Eric Han</span>
+      </section>
+   </footer>
+   <script type="text/javascript" src="JavaScript/script.js"></script>
 </body>
 
 </html>

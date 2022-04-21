@@ -1,41 +1,87 @@
-console.log("Test");
+//Example fetch using pokemonapi.co
+fetch("https://api.coindesk.com/v1/bpi/currentprice.json")
+  .then((res) => res.json()) // parse response as JSON
+  .then((data) => {
+    //   formatter to turn bitcoin float to USD currency
+    const bitcoinFormatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 4,
+    });
+    console.log(`Bitcoin current USD Price is ${data.bpi.USD.rate_float}`);
+    document.querySelector(".bitcoin").innerText = bitcoinFormatter.format(
+      data.bpi.USD.rate_float
+    );
+
+    //  document.querySelector(".priceTime").innerText = data.time.updated;
+  })
+  .catch((err) => {
+    console.log(`error ${err}`);
+  });
+
 document.querySelector("#btnInterest").addEventListener("click", check);
-// let interest = document.querySelector("#interest").value;
+document.querySelector("#btnBitcoin").addEventListener("click", bitcoin);
 
 function check() {
+  // Variables
+  // amountBorrowed - get amout borrowed from input
   let amountBorrowed = document.querySelector("#borrowed").value;
+  // interestAmount - get interest from input
   let interestAmount = document.querySelector("#interest").value;
-  // other Variables
-  // dailyInterestRate gets us from 7% format to 0.07 format
-  let interestRateHundredths = interestAmount / 100;
-  // dailyinterestRateTenThousandths to get us 0.00019
-  let dailyinterestRateTenThousandths = (interestRateHundredths / 365).toFixed(
+  // Other Variables
+  let interestRateHundredths = interestAmount / 100; //7% == 0.07
+  let dailyInterestRateTenThousandths = (interestRateHundredths / 365).toFixed(
     5
   );
-  let dailyinterestRateTenThousandthsDOM = document.querySelectorAll(
+  let dailyInterestRateTenThousandthsDOM = document.querySelectorAll(
     ".dailyinterestRateTenThousandths"
   );
-  let amountPerDayDOM = document.querySelectorAll(".amountPerDay");
   let dailyinterestRateHundredths = interestAmount / 365;
-  // 0.07
+  let amountPerDayDOM = document.querySelectorAll(".amountPerDay");
+  // DOM
   document.querySelector(".interestRateHundredths").innerText =
     interestRateHundredths;
-  // 0.00019
-  //   document.querySelector(".dailyinterestRateTenThousandths").innerText =
-  //     dailyinterestRateTenThousandths;
-  for (let i = 0; i < dailyinterestRateTenThousandthsDOM.length; i++) {
-    dailyinterestRateTenThousandthsDOM[i].innerText =
-      dailyinterestRateTenThousandths;
+  for (let i = 0; i < dailyInterestRateTenThousandthsDOM.length; i++) {
+    dailyInterestRateTenThousandthsDOM[i].innerText =
+      dailyInterestRateTenThousandths;
   }
-  // 0.019
+  // 0.019% - Daily Interest Rate %
   document.querySelector(".dailyinterestRateHundredths").innerText =
     dailyinterestRateHundredths.toFixed(3);
-  // 2. Amount Borrowed - $10,000
+
+  // 2 - Calculate Amount of Interest
+  //  Amount borrowed
   document.querySelector(".amountBorrowed").innerText = amountBorrowed;
-  // 2. Amount Per Day
-  let dailyCost = (amountBorrowed * dailyinterestRateTenThousandths).toFixed(2);
+  // Daily interest calculation
+  let dailyCost = (amountBorrowed * dailyInterestRateTenThousandths).toFixed(2);
   for (let i = 0; i < amountPerDayDOM.length; i++) {
     amountPerDayDOM[i].innerText = dailyCost;
   }
   document.querySelector(".dailyCalculation").innerText = dailyCost * 30;
+}
+
+function bitcoin() {
+  fetch("https://api.coindesk.com/v1/bpi/currentprice.json")
+    .then((res) => res.json()) // parse response as JSON
+    .then((data) => {
+      //   formatter to turn bitcoin float to USD currency
+      // const bitcoinFormatter = new Intl.NumberFormat("en-US", {
+      //   style: "currency",
+      //   currency: "USD",
+      //   minimumFractionDigits: 4,
+      // });
+      let totalLoan = document.querySelector(".amountBorrowed").innerText;
+      let dailyCalculation =
+        document.querySelector(".dailyCalculation").innerText;
+      document.querySelector(".bitcoinAmountFromTotaLoan").innerText = (
+        parseInt(totalLoan) / data.bpi.USD.rate_float
+      ).toFixed(4);
+      document.querySelector(".bitcoinAmountFromMonthlyInterest").innerText = (
+        dailyCalculation / data.bpi.USD.rate_float
+      ).toFixed(4);
+      //  document.querySelector(".priceTime").innerText = data.time.updated;
+    })
+    .catch((err) => {
+      console.log(`error ${err}`);
+    });
 }
