@@ -1,0 +1,24 @@
+{
+  "name": "DailyStudentLoanCalculator",
+  "version": "1.0.0",
+  "description": "[Link to loan calculator](https://ericqyhan.github.io/DailyStudentLoanCalculator/)",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwind -i src/input.css -o ./dist/output.css",
+    "watch": "tailwind -i src/input.css -o ./dist/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricqyHan/DailyStudentLoanCalculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EricqyHan/DailyStudentLoanCalculator/issues"
+  },
+  "homepage": "https://github.com/EricqyHan/DailyStudentLoanCalculator#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.0.24"
+  }
+}

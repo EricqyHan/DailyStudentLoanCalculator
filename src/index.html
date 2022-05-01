@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="description" content="This is where your description goes">
+   <meta name="keywords" content="one, two, three">
+
+   <title>Loans or Bitcoin</title>
+
+   <!-- external CSS link -->
+   <!-- <link rel="stylesheet" href="css/normalize.css">
+   <link rel="stylesheet" href="css/style.css"> -->
+   <link href="/dist/output.css" rel="stylesheet">
+</head>
+
+<body class="mx-20">
+   <h1 class="text-3xl text-center font-bold underline">Pay Loan or Buy Bitcoin</h1>
+   <h2 class="text-center text-2xl text-bitcoin-orange">Current price of Bitcoin: <span class="bitcoin"></span></h2>
+   <section class="loan-form">
+      <section>
+         <form action="">
+            <section>
+               <label for="borrowed" class="block mb-3">Amount Borrowed/Amount Left</label>
+               <input id="borrowed" type="number" placeholder="Amount Borrowed"
+                  class="w-1/6 p-2 mb-3 border border-gray-400 border-solid">
+            </section>
+
+            <section>
+               <label for="interest" class="block mb-3">Annual Interest Rate</label>
+               <input id="interest" type="number" placeholder="Interest Rate"
+                  class="w-1/6 p-2 mb-3 border border-gray-400 border-solid">
+            </section>
+         </form>
+      </section>
+      <section class="">
+         <button class="p-3 pl-5 pr-5 mt-2 text-white bg-green-500 rounded-lg" id="btnInterest">Find Interest and
+            current
+            Bitcoin price</button>
+      </section>
+   </section>
+   <section class="instructions mt-4">
+
+
+      <h2 class="font-bold text-xl">How to calculate loan interest</h2>
+      <p>To see how to calculate student loan interest in practice, get out your pen and paper and follow along using
+         the
+         following example. Not a math person? Our student loan interest calculator below does the calculation for
+         you.
+      </p>
+      <p>For this example, say you borrow $10,000 at a 7% annual interest rate. On a 10-year standard repayment plan,
+         your
+         monthly payment would be about $116.</p>
+   </section>
+
+   <section class="questionOne mt-4">
+      <p><strong>1. Calculate your daily interest rate (sometimes called interest rate factor).</strong> Divide your
+         annual studen loan interest rate by the number of days in the year.</p>
+      <p><strong>Example: </strong> 0.07/365 = 0.00019, or 0.019%</p>
+      <p><strong>Your Calculation: </strong> <span class="interestRateHundredths">0.00</span>/365</p>
+      <!-- <p class="example">.07/365 = 0.00019, or 0.019%</p> -->
+      <p><strong>Your Daily Interest Rate Calculated: </strong><span
+            class="dailyinterestRateTenThousandths">0.00000</span>, or <span
+            class="dailyinterestRateHundredths">0.000</span>%</p>
+      <!-- <p><span class="interestRateHundredths">.00</span>/365 = <span
+            class="dailyinterestRateTenThousandths">0.00000</span>, or <span
+            class="dailyinterestRateHundredths">0.000</span>% -->
+      </p>
+
+   </section>
+
+   <section class="questionTwo mt-4">
+      <p><strong>2. Calculate the amount of interest your loan accrues per day.</strong> Multiply your outstanding loan
+         balance by your daily interest rate.</p>
+      <p><strong>Example: </strong>$10,000 x 0.00019 = $1.90</p>
+      <p><strong>Your Calculations: </strong>$<span class="amountBorrowed">0</span> x <span
+            class="dailyinterestRateTenThousandths">0.00000</span></p>
+      <!-- <p class="example">$10,000 x 0.00019 = $1.90</p> -->
+      <!-- <p>Amount of interest YOU accrues per day:</p> -->
+      <p><strong>Interest your loan accrues per day:</strong> $ <span class="amountPerDay">0.00</span></p>
+      <!-- <p>$<span class="amountBorrowed">0</span> x <span class="dailyinterestRateTenThousandths">0.00000</span> = $ <span
+            class="amountPerDay">0.00</span></p> -->
+   </section>
+
+   <section class="questionThree mt-4">
+      <p><strong>3. Find your monthly interest payment.</strong> Multiply your daily interest amount by the number of
+         days
+         since your last payment.</p>
+      <p><strong>Example: </strong>$1.90 x 30 = $57</p>
+      <p><strong>Your Example: </strong>$<span class="amountPerDay">0.00</span> x 30</p>
+      <p><strong>Your monthly interest payment alone: </strong> $<span class="dailyCalculation">0.00</span></p>
+      <!-- <p class="example">$1.90 x 30 = $57</p> -->
+      <!-- <p>Your Monthly Interest: </p> -->
+      <!-- <p>$<span class="amountPerDay">0.00</span> x 30 = $<span class="dailyCalculation">0.00</span></p> -->
+   </section>
+
+   <section class="bitcoinQuestion mt-4">
+      <p><Strong>4. How much Bitcoin can you buy right now instead of paying for your loans?</Strong></p>
+      <button id="btnBitcoin" class="p-3 pl-5 pr-5 mt-2 text-white bg-green-500 rounded-lg">Find Amount of Bitcoin
+         price</button>
+      <p><strong>Total Loan Buys: </strong> <span class=" bitcoinAmountFromTotaLoan">0</span> Bitcoin.</p>
+      <p><strong>Monthly Interest Alone Buys: </strong><span class="bitcoinAmountFromMonthlyInterest">0</span> Bitcoin.
+      </p>
+   </section>
+
+   <footer class="mt-6">
+      <hr>
+      <section class="nerd">
+         <span>Formula provided by Nerd Wallet built by Eric Han</span>
+      </section>
+   </footer>
+   <script type="text/javascript" src="../JavaScript/script.js"></script>
+</body>
+
+</html>
