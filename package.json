@@ -4,8 +4,8 @@
   "description": "[Link to loan calculator](https://ericqyhan.github.io/DailyStudentLoanCalculator/)",
   "main": "index.js",
   "scripts": {
-    "build": "tailwind -i src/input.css -o ./dist/output.css",
-    "watch": "tailwind -i src/input.css -o ./dist/output.css --watch"
+    "build": "tailwind -i src/input.css -o src/output.css",
+    "watch": "tailwind -i src/input.css -o src/output.css --watch"
   },
   "repository": {
     "type": "git",
